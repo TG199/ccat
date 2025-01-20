@@ -19,6 +19,18 @@ func main() {
 		}
 		fmt.Printf("%s", data)
 
+	}else if file == "-n"{
+		fmt.Println("Numbering block hit!")
+		reader := bufio.NewReader(os.Stdin)
+		lineCount := 0
+		for {
+			line, _, err := reader.ReadLine()
+			if err != nil {
+				break
+			}
+			lineCount++
+			fmt.Printf("%d %s\n", lineCount,line )
+		}
 	} else if len(os.Args) > 2  {
 		fmt.Println("Concatenation block hit!")
 		var output io.Writer
