@@ -22,8 +22,11 @@ func dash_b() {
 		if err != nil {
 			break
 		}
-		if len(line) == 0 {
-			continue
+		if len(line) > 0 {
+			lineCount++
+			fmt.Printf("%d %s\n", lineCount,line )
+		} else {
+			fmt.Printf("%s\n", line )
 		}
 		lineCount++
 		fmt.Printf("%d %s\n", lineCount,line )
@@ -82,14 +85,14 @@ func normal() {
 func main() {
 	file := os.Args[1]
 
-	if len(os.Args) > 2 {
-        concat()
-        return
-    } else if len(os.Args) == 2{
+	if len(os.Args) == 2{
 		normal()
 		return
+	}else if len(os.Args) > 2 {
+        concat()
+        return
 	}
-
+		
 	switch file {
 	case "-":
 		dash()
@@ -100,9 +103,10 @@ func main() {
 	case "-n":
 		dash_n()
 		break
-	
 	default:
 		fmt.Println("Wrong argument")
-
+	
 	}
 }
+
+	
