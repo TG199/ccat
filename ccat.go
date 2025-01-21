@@ -28,8 +28,6 @@ func dash_b() {
 		} else {
 			fmt.Printf("%s\n", line )
 		}
-		lineCount++
-		fmt.Printf("%d %s\n", lineCount,line )
 	}
 }
 
@@ -85,13 +83,14 @@ func normal() {
 func main() {
 	file := os.Args[1]
 
-	if len(os.Args) == 2{
-		normal()
-		return
-	}else if len(os.Args) > 2 {
-        concat()
-        return
-	}
+	// if len(os.Args) == 2{
+	// 	normal()
+	// 	return
+	// }
+	// // }else if len(os.Args) > 2 {
+    //     concat()
+    //     return
+	// }
 		
 	switch file {
 	case "-":
