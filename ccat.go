@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 func dash() {
 	stdin := bufio.NewReader(os.Stdin)
@@ -81,35 +82,33 @@ func normal() {
 }
 
 func main() {
-	file := os.Args[1]
-
-	if len(os.Args) > 1{
-		normal()
-		return
-	}
-	if len(os.Args) > 2 {
-		concat()
-		return
-	} 
+	argType := os.Args[1]
 	
-
-	switch file {
-	case "-":
-		dash()
-		break
-	case "-b":
-		dash_b()
-		break;
-	case "-n":
-		dash_n()
-		break
-	default:
-		fmt.Printf("Invalid argument passed: %s\n try -b, -n\n", file)
-	
-	}
-
+	if strings.HasPrefix(argType, "-") {
+		switch argType {
+		case "-":
+			dash()
+			break
+		case "-b":
+			dash_b()
+			break;
+		case "-n":
+			dash_n()
+			break
+		default:
+			fmt.Printf("Invalid argument passed: %s\n try -b, -n\n", argType)
 		
-	
+		}		
+		
+	}
+	if !strings.HasPrefix(argType, "-") {
+		if len(os.Args) > 1 && len(os.Args) == 2 {
+			normal()
+			return
+		}else if len(os.Args) > 2 {
+			concat()
+			return
+		} 
+	}
 }
-
 	
