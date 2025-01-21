@@ -83,15 +83,16 @@ func normal() {
 func main() {
 	file := os.Args[1]
 
-	// if len(os.Args) == 2{
-	// 	normal()
-	// 	return
-	// }
-	// // }else if len(os.Args) > 2 {
-    //     concat()
-    //     return
-	// }
-		
+	if len(os.Args) > 1{
+		normal()
+		return
+	}
+	if len(os.Args) > 2 {
+		concat()
+		return
+	} 
+	
+
 	switch file {
 	case "-":
 		dash()
@@ -103,9 +104,12 @@ func main() {
 		dash_n()
 		break
 	default:
-		fmt.Println("Wrong argument")
+		fmt.Printf("Invalid argument passed: %s\n try -b, -n\n", file)
 	
 	}
+
+		
+	
 }
 
 	
