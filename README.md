@@ -57,7 +57,7 @@ make test
     ```
     Exclude empty lines
     ```bash
-    sed G test.txt | cccat -b | head -n5
+    sed G test.txt | ./bin/ccat -b | head -n5
     ```
 
 ### Clean build artifacts
