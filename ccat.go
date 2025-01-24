@@ -82,6 +82,16 @@ func normal() {
 }
 
 func main() {
+	if len(os.Args) == 1 {
+		reader := bufio.NewReader(os.Stdin)
+		for {
+			line, _, err := reader.ReadLine()
+			if err != nil {
+				fmt.Fprintln(os.Stderr, err)
+			}
+			fmt.Printf("%s\n", line)
+		}
+	}
 	argType := os.Args[1]
 	
 	if strings.HasPrefix(argType, "-") {
