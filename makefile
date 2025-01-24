@@ -44,5 +44,5 @@ lint:
 test:
 	@echo "Testing $(APP_NAME)..."
 	$(OUTPUT) test.txt
-	@echo "Test complete, celebrate grace"
+	@echo "Test complete, celebrate grace!"
 
